@@ -28,7 +28,10 @@ request("http://pitchfork.com/best/", function (error, response, body) {
   // let newAlbums = $("#best-new-albums");
   // let newTracks = $("#best-new-tracks");
   // let newReissues = $("#best-new-reissues");
-  newMusic($);
+
+  //newMusic($);
+  newAlbums($);
+
   //scrape data
   //save data to db
   // display data
@@ -53,9 +56,9 @@ function newMusic($) {
 }
 
 function newAlbums($) {
-  $("#best-new-albums").each(function(i, elem) {
-          console.log($(this).find(".title").text());
-          console.log($(this).find(".genre-list.before.inline").text());
-          console.log($(this).find(".date").text());
+  $("#best-new-albums .album-small").each(function(i, elem) {
+    console.log($(this).find(".artist-list").text());
+    console.log($(this).find(".title").text());
+    console.log($(this).find("img").attr("src"));
   });
 }
