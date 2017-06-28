@@ -25,6 +25,9 @@ request("http://pitchfork.com/best/", function (error, response, body) {
 function newMusic($) {
 
   let newMusicArray = [];
+  if($(".hero").length <1) {
+    return;
+  }
   $(".hero").each(function(i, elem) {
       let type = $(this).find(".group").text().split(" ")[2]; // removes the best new to get type
       let track = "";
@@ -34,7 +37,7 @@ function newMusic($) {
         album = "";
         track = $(this).find(".title").text();
       }
-      let newMusic = new BestNew({
+      let newMusic = {
         type: type,
         artist: $(this).find(".artist-list").text(),
         album: album,
@@ -42,10 +45,10 @@ function newMusic($) {
         genre: $(this).find(".genre-list.before.inline").text(),
         imgArt: $(this).find("img").attr("src"),
         date: $(this).find(".date").text()
-      });
+    };
       newMusicArray.push(newMusic);
   });
-  query.addScraped("newMusic",newMusicArray);
+  query.addScraped(newMusicArray);
 }
 
 function newAlbums($) {

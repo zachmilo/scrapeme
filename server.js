@@ -1,18 +1,19 @@
 const express = require("express"),
-bodyParser = require("body-parser"),
-datbaseModels = require("./models/bestNew"),
-scraped = require("./app/scrapePage"),
-request = require('request'),
-cheerio = require('cheerio');
-
-
-
-
-
+bodyParser = require("body-parser");
 var path = require("path");
 var app = express();
 
 const PORT = process.env.PORT || 8080;
+
+let mongoose = require("mongoose");
+let db = require("./mongoConfig");
+db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("We are connected");
+  const scraped = require("./app/scrapePage");
+});
+
 
 app.use(express.static(path.join(__dirname, "node_modules")));
 app.use(express.static(path.join(__dirname, "public")));
