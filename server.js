@@ -13,7 +13,7 @@ db.once('open', function() {
   console.log("We are connected");
   const scraped = require("./app/scrapePage");
 });
-//43200000 every twelve hours
+//43200000 every twelve hours /bulma/css/bulma.css
 
 app.use(express.static(path.join(__dirname, "node_modules")));
 app.use(express.static(path.join(__dirname, "public")));
