@@ -4,7 +4,8 @@ let Comment = require("../models/comment");
 
 let query = {
   addScraped: function(scrapedData) {
-    BestNew.create(scrapedData)
+    let newAdded = BestNew.doesExist(scrapedData);
+    BestNew.create(newAdded)
     .then(function(){
       console.log("you worked maybe");
     })
