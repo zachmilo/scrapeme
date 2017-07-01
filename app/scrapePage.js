@@ -10,17 +10,15 @@ request("http://pitchfork.com/best/", function (error, response, body) {
   const $ = cheerio.load(body);
 
   newMusic($);
-  //newAlbums($);
-  //newTrack($);
-  //newReissue($);
-  //scrape data
-  //save data to db
-  // display data
+  newAlbums($);
+  newTrack($);
+  newReissue($);
 });
 
 
 /*
  * this code needs to be more dynamic please re-write this
+ * we are pretty much doing the same thing. WE CAN DO BETTER
  */
 function newMusic($) {
 
@@ -52,27 +50,53 @@ function newMusic($) {
 }
 
 function newAlbums($) {
+  let newMusicArray = [];
+
   $("#best-new-albums .album-small").each(function(i, elem) {
-    console.log($(this).find(".artist-list").text());
-    console.log($(this).find(".title").text());
-    console.log($(this).find(".genre-list.before.inline").text());
-    console.log($(this).find("img").attr("src"));
+    let newMusic = {
+      type: "album",
+      artist: $(this).find(".artist-list").text(),
+      album: $(this).find(".title").text(),
+      track: "",
+      genre: $(this).find(".genre-list.before.inline").text(),
+      imgArt: $(this).find("img").attr("src"),
+      date: $(this).find(".date").text()
+  };
+    newMusicArray.push(newMusic);
   });
+  query.addScraped(newMusicArray);
 }
 
 function newTrack($) {
+  let newMusicArray = [];
   $("#best-new-tracks .track-small").each(function(i, elem) {
-    console.log($(this).find(".artist-list").text());
-    console.log($(this).find(".title").text());
-    console.log($(this).find(".genre-list.before.inline").text());
-    console.log($(this).find("img").attr("src"));
+
+      let newMusic = {
+        type: "track",
+        artist: $(this).find(".artist-list").text(),
+        album: "",
+        track: $(this).find(".title").text(),
+        genre: $(this).find(".genre-list.before.inline").text(),
+        imgArt: $(this).find("img").attr("src"),
+        date: $(this).find(".date").text()
+    };
+      newMusicArray.push(newMusic);
   });
+  query.addScraped(newMusicArray);
 }
 function newReissue($) {
+  let newMusicArray = [];
   $("#best-new-reissues .album-small").each(function(i, elem) {
-    console.log($(this).find(".artist-list").text());
-    console.log($(this).find(".title").text());
-    console.log($(this).find(".genre-list.before.inline").text());
-    console.log($(this).find("img").attr("src"));
+      let newMusic = {
+        type: "track",
+        artist: $(this).find(".artist-list").text(),
+        album: $(this).find(".title").text(),
+        track: "",
+        genre: $(this).find(".genre-list.before.inline").text(),
+        imgArt: $(this).find("img").attr("src"),
+        date: $(this).find(".date").text()
+    };
+      newMusicArray.push(newMusic);
   });
+  query.addScraped(newMusicArray);
 }

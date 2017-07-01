@@ -14,22 +14,24 @@ let BestNewSchema = mongoose.Schema({
 });
 
 
-BestNewSchema.statics.doesExist =  function doesExist(scrapedData) {
+BestNewSchema.statics.doesExist = function(scrapedData) {
 
   let addToDb = [];
   for(let scrape in scrapedData) {
     let lookUp = scrapedData[scrape];
-    BestNew.find({lookUp})
+    BestNew.find(lookUp)
     .then(function(result) {
         if(result.length < 1) {
           addToDb.push(scrapedData[scrape]);
+        }
+        if(scrapedData.length-1 === parseInt(scrape)) {
+          BestNew.create(addToDb);
         }
       })
       .catch(function(e){
         console.log(e);
       });
   }
-  return addToDb;
 };
 
 let BestNew = mongoose.model("BestNew", BestNewSchema);

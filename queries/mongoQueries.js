@@ -4,21 +4,14 @@ let Comment = require("../models/comment");
 
 let query = {
   addScraped: function(scrapedData) {
-    let newAdded = BestNew.doesExist(scrapedData);
-    BestNew.create(newAdded)
-    .then(function(){
-      console.log("you worked maybe");
-    })
-    .catch(function(e){
-      console.log(e);
-    });
+    try {
+      BestNew.doesExist(scrapedData);
+    }
+    catch(error) {
+      console.log(error);
+    }
   },
-  // addComment: function(collection) {
-  //
-  // },
-  // getNew: function(collection,filter) {
-  //
-  // }
+
 }
 
 module.exports = query;
