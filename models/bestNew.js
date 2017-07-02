@@ -21,6 +21,7 @@ BestNewSchema.statics.doesExist = function(scrapedData) {
     let lookUp = scrapedData[scrape];
     BestNew.find(lookUp)
     .then(function(result) {
+      console.log(result);
         if(result.length < 1) {
           addToDb.push(scrapedData[scrape]);
         }

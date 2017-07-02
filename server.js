@@ -1,11 +1,15 @@
 const express = require("express"),
+exphbs  = require("express-handlebars"),
+pages = require("./routes/pageRoutes"),
 bodyParser = require("body-parser");
-var path = require("path");
-var app = express();
+
+let path = require("path");
+let app = express();
 
 const PORT = process.env.PORT || 8080;
 
 let mongoose = require("mongoose");
+mongoose.Promise = Promise;
 let db = require("./mongoConfig");
 db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -13,10 +17,14 @@ db.once('open', function() {
   console.log("We are connected");
   const scraped = require("./app/scrapePage");
 });
-//43200000 every twelve hours /bulma/css/bulma.css
+//43200000 every twelve hours
 
 app.use(express.static(path.join(__dirname, "node_modules")));
 app.use(express.static(path.join(__dirname, "public")));
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+  app.use(pages);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
