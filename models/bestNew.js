@@ -15,13 +15,12 @@ let BestNewSchema = mongoose.Schema({
 
 
 BestNewSchema.statics.doesExist = function(scrapedData) {
-
   let addToDb = [];
   for(let scrape in scrapedData) {
     let lookUp = scrapedData[scrape];
     BestNew.find(lookUp)
     .then(function(result) {
-      console.log(result);
+      console.log("This is getting hit up");
         if(result.length < 1) {
           addToDb.push(scrapedData[scrape]);
         }
