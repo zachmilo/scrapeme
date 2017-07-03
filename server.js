@@ -1,6 +1,5 @@
 const express = require("express"),
-// exphbs  = require("express-handlebars"),
-//pages = require("./routes/pageRoutes"),
+exphbs  = require("express-handlebars"),
 bodyParser = require("body-parser");
 
 let path = require("path");
@@ -24,8 +23,8 @@ db.once('open', function() {
 
 app.use(express.static(path.join(__dirname, "node_modules")));
 app.use(express.static(path.join(__dirname, "public")));
-//app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-//app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));

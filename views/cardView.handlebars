@@ -1,5 +1,5 @@
 {{#howManyPerRow 3 musicArray}}
-  <div class="columns is-4">
+  <div class="column is-4">
     <div class="card">
       <div class="card-image">
         <figure class="image is-4by3">
@@ -8,17 +8,12 @@
       </div>
       <div class="card-content">
         <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
-            </figure>
-          </div>
           <div class="media-content">
             <p class="title is-4">{{this.artist}}</p>
             {{#if this.album}}
-            <p class="subtitle is-6">album: {{this.album}}</p>
+            <p class="subtitle is-6"><strong>album:</strong> {{this.album}}</p>
             {{else}}
-            <p class="subtitle is-6">track: {{this.track}}</p>
+            <p class="subtitle is-6"><strong>track:</strong> {{this.track}}</p>
             {{/if}}
           </div>
         </div>
@@ -30,5 +25,75 @@
       </div>
       </div>
     </div>
+    <div class="card">
+  <header id="commentHeader" class="card-header">
+    <p class="card-header-title">
+      Comments
+      <span id={{this._id}} class="tag button is-medium buttonMargin">Add Comment</span>
+    </p>
+    <a class="card-header-icon">
+      <span class="icon">
+        <i class="fa fa-angle-right"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content jhide">
+    <div class="content">
+      {{#each commentsArray}}
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>{{this.title}}</strong> <small>{{this.author}}</small> <small>{{this.datePosted}}</small>
+                    <br>
+                  </p>
+                </div>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{this.votes.up}}</span>
+                </a>
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> {{this.votes.down}}</span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </article>
+          </div>
+          {{/each}}
+    </div>
+  </div>
+</div>
   </div>
 {{/howManyPerRow}}
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Add Comment</p>
+      <button class="delete"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="field">
+        <p class="control">
+          <input class="input" type="text" placeholder="Title">
+          <input class="input" type="text" placeholder="Author">
+          <div class="field">
+            <label class="label">Message</label>
+            <p class="control">
+              <textarea class="textarea" placeholder="Message..."></textarea>
+            </p>
+          </div>
+        </p>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <a class="button is-success">Save</a>
+    </footer>
+  </div>
+</div>

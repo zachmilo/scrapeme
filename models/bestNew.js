@@ -20,7 +20,6 @@ BestNewSchema.statics.doesExist = function(scrapedData) {
     let lookUp = scrapedData[scrape];
     BestNew.find(lookUp)
     .then(function(result) {
-      console.log("This is getting hit up");
         if(result.length < 1) {
           addToDb.push(scrapedData[scrape]);
         }
@@ -28,8 +27,8 @@ BestNewSchema.statics.doesExist = function(scrapedData) {
           BestNew.create(addToDb);
         }
       })
-      .catch(function(e){
-        console.log(e);
+      .catch(function(error){
+        console.log(error);
       });
   }
 };

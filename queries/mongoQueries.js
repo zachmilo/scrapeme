@@ -4,7 +4,6 @@ let Comment = require("../models/comment");
 
 let query = {
   addScraped: function(scrapedData) {
-
     try {
       BestNew.doesExist(scrapedData);
     }
@@ -12,16 +11,9 @@ let query = {
       console.log(error);
     }
   },
-  // getData: function(queryparam,fn) {
-  //   let setQuery = queryparam || "{}";
-  //   BestNew.find(setQuery)
-  //   .then(function() {
-  //     fn("this is my result");
-  //   })
-  //   .catch(function() {
-  //     console.log("what is happening here");
-  //   });
-  // }
+  getData: function(queryparam = "{}") {
+    return BestNew.find(queryparam)
+  }
 }
 
 // BestNew.find(setQuery)

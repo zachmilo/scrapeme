@@ -7,7 +7,7 @@ let CommentSchema = mongoose.Schema({
     title:      String,
     message:{   type:String, maxlength:300 },
     votes:{     up:Number, down:Number },
-    datePosted: Date
+    datePosted: String
 });
 
   let Comment = mongoose.model( "Comment", CommentSchema);

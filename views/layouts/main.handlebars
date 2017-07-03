@@ -4,28 +4,30 @@
     <meta charset="utf-8">
     <title>Scraped</title>
     <link rel="stylesheet" href="/bulma/css/bulma.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 id="title" class="title">
+        New Ear Candy
+      </h1>
+      <div class="subtitle">
+          <img id="cassetLogo" src="/assets/1498965632_Cassette.svg" alt="Music logo">
+      </div>
+    </div>
+  </div>
+</section>
   </head>
   <body>
-
-<nav class="nav has-shadow">
-  <div class="container">
-    <div class="nav-left">
-      <a class="nav-item">
-        <img src="/assets/1498965632_Cassette.svg" style="height:40px" alt="Music logo">
-      </a>
-      <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
-      <a class="nav-item is-tab is-hidden-mobile">Best New Music</a>
-      <a class="nav-item is-tab is-hidden-mobile">Best New Albums</a>
-      <a class="nav-item is-tab is-hidden-mobile">Best New Tracks</a>
-      <a class="nav-item is-tab is-hidden-mobile">Best New Reissues</a>
+    <div class="container is-fluid">
+      <div class="notification">
+    {{{body}}}
     </div>
-    <span class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
   </div>
-</nav>
-  {{{body}}}
   </body>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="/javascript/app.js" type="text/javascript"></script>
 </html>
