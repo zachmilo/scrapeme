@@ -40,7 +40,3 @@ Thumbs.db
 # NPM Package #
 ###############
 node_modules/*
-
-# Config File #
-###############
-mongoConfig.js
