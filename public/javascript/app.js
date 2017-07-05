@@ -69,10 +69,10 @@ $(document).ready(function () {
                     <nav class="level is-mobile">
                       <div class="level-left">
                         <a class="level-item">
-                          <span class="icon is-small"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{this.votes.up}}</span>
+                          <span class="icon is-small"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
                         </a>
                         <a class="level-item">
-                          <span class="icon is-small"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> {{this.votes.down}}</span>
+                          <span class="icon is-small"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>
                         </a>
                       </div>
                     </nav>
