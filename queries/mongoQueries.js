@@ -12,19 +12,11 @@ let query = {
     }
   },
   getData: function(queryparam = "{}") {
-    return BestNew.find(queryparam)
+    return BestNew.find(queryparam).sort({date:-1})
+  },
+  addComment: function(addComment,albumId) {
+    return BestNew.update({ _id:albumId}, { "$push": { "comments": addComment } });
   }
 }
-
-// BestNew.find(setQuery)
-// .then(function(result) {
-//   console.log("GIVE ME SOME FEEDBACK PLEASE"+result);
-//   return new Promise.resolve(result);
-// })
-// .catch(function(error){
-//   console.log("what the ruck is going "+error);
-//   return new Promise.reject(error);
-// });
-// }
 
 module.exports = query;

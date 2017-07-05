@@ -39,7 +39,7 @@
   </header>
   <div class="card-content jhide">
     <div class="content">
-      {{#each commentsArray}}
+      {{#each this.comments}}
           <div class="box">
             <article class="media">
               <div class="media-left">
@@ -47,9 +47,10 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>{{this.title}}</strong> <small>{{this.author}}</small> <small>{{this.datePosted}}</small>
-                    <br>
+                    <strong>{{this.title}}</strong> <small>{{this.author}}</small>
+                    <p>{{this.message}}</p>
                   </p>
+                  <small>{{this.datePosted}}</small>
                 </div>
             <nav class="level is-mobile">
               <div class="level-left">
@@ -81,19 +82,19 @@
     <section class="modal-card-body">
       <div class="field">
         <p class="control">
-          <input class="input" type="text" placeholder="Title">
-          <input class="input" type="text" placeholder="Author">
+          <input id="titleOfMes" class="input" type="text" placeholder="Title">
+          <input id="name" class="input" type="text" placeholder="Author">
           <div class="field">
             <label class="label">Message</label>
             <p class="control">
-              <textarea class="textarea" placeholder="Message..."></textarea>
+              <textarea id="message" class="textarea" placeholder="Message..."></textarea>
             </p>
           </div>
         </p>
       </div>
     </section>
     <footer class="modal-card-foot">
-      <a class="button is-success">Save</a>
+      <a id="save" class="button is-success">Save</a>
     </footer>
   </div>
 </div>
