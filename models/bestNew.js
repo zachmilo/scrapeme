@@ -15,7 +15,6 @@ let BestNewSchema = mongoose.Schema({
 
 
 BestNewSchema.statics.doesExist = function(scrapedData) {
-
   let addToDb = [];
   for(let scrape in scrapedData) {
     let lookUp = scrapedData[scrape];
@@ -28,8 +27,8 @@ BestNewSchema.statics.doesExist = function(scrapedData) {
           BestNew.create(addToDb);
         }
       })
-      .catch(function(e){
-        console.log(e);
+      .catch(function(error){
+        console.log(error);
       });
   }
 };

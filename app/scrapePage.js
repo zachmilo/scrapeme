@@ -1,5 +1,5 @@
 let request = require("request");
-let query = require("../queries/mongoQueries")
+let query = require("../queries/mongoQueries");
 let BestNew = require("../models/bestNew").BestNew;
 const cheerio = require("cheerio");
 
